@@ -13,7 +13,7 @@
       <uri>model://hexa_x_tilt</uri>
     </include>
     <include>
-      <uri>model://uneven_ground</uri>
+      <uri>model://asphalt_plane</uri>
     </include>
     <physics name='default_physics' default='0' type='ode'>
       <gravity>0 0 -9.8066</gravity>
@@ -36,7 +36,7 @@
       <real_time_update_rate>250</real_time_update_rate>
       <magnetic_field>6.0e-6 2.3e-5 -4.2e-5</magnetic_field>
     </physics>
-    <gui fullscreen='0'>
+    <!-- <gui fullscreen='0'>
       <camera name='user_camera'>
         <pose frame=''>5.4634 -5.46339 2.17586 0 0.275643 2.35619</pose>
         <view_controller>orbit</view_controller>
@@ -47,5 +47,6 @@
         </track_visual>
       </camera>
     </gui>
+-->
   </world>
 </sdf>
