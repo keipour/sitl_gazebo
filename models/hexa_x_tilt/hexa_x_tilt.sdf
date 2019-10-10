@@ -327,9 +327,8 @@
       </physics>
     </joint>
 
-    <link name="cgo3_camera_link">
+    <!--link name="cgo3_camera_link">
       <inertial>
-        <!-- place holder -->
         <pose>-0.041 0 -0.162 0 0 0</pose>
         <mass>0.1</mass>
         <inertia>
@@ -400,24 +399,6 @@
         <always_on>1</always_on>
         <update_rate>10</update_rate>
         <visualize>true</visualize>
-        <!-- how to make this work without using urdf?
-        <plugin name="cgo3_camera_controller" filename="libgazebo_ros_camera.so">
-          <alwaysOn>true</alwaysOn>
-          <updateRate>0.0</updateRate>
-          <cameraName>cgo3_camera</cameraName>
-          <imageTopicName>image_raw</imageTopicName>
-          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-          <frameName>cgo3_camera_optical_frame</frameName>
-          <hackBaseline>0.0</hackBaseline>
-          <distortionK1>0.0</distortionK1>
-          <distortionK2>0.0</distortionK2>
-          <distortionK3>0.0</distortionK3>
-          <distortionT1>0.0</distortionT1>
-          <distortionT2>0.0</distortionT2>
-        </plugin>
-        -->
-        <!-- GStreamer camera plugin (needs a lot of CPU! Consider lowering the
-             camera image size) -->
         <plugin name="GstCameraPlugin" filename="libgazebo_gst_camera_plugin.so">
             <robotNamespace></robotNamespace>
             <udpPort>5600</udpPort>
@@ -451,13 +432,12 @@
         <ode>
           <implicit_spring_damper>1</implicit_spring_damper>
           <limit>
-            <!-- testing soft limits -->
             <cfm>0.1</cfm>
             <erp>0.2</erp>
           </limit>
         </ode>
       </physics>
-    </joint>
+    </joint-->
 
     <link name="left_leg">
       <inertial>
@@ -1488,7 +1468,7 @@
           -->
           <joint_name>rotor_1_joint</joint_name>
         </channel>
-        <channel name="gimbal_roll">
+        <!--channel name="gimbal_roll">
           <input_index>6</input_index>
           <input_offset>0</input_offset>
           <input_scaling>-3.1415</input_scaling>
@@ -1517,7 +1497,7 @@
           <joint_control_type>position_gztopic</joint_control_type>
           <gztopic>/gimbal_yaw_cmd</gztopic>
           <joint_name>hexa_x_tilt::cgo3_vertical_arm_joint</joint_name>
-        </channel>
+        </channel-->
         <channel name="left_leg">
           <input_index>9</input_index>
           <input_offset>1</input_offset>
@@ -1570,7 +1550,7 @@
       <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
       <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
     </plugin>
-    <plugin name='gimbal_controller' filename='libgazebo_gimbal_controller_plugin.so'>
+    <!--plugin name='gimbal_controller' filename='libgazebo_gimbal_controller_plugin.so'>
       <joint_yaw>hexa_x_tilt::cgo3_vertical_arm_joint</joint_yaw>
       <joint_roll>hexa_x_tilt::cgo3_horizontal_arm_joint</joint_roll>
       <joint_pitch>hexa_x_tilt::cgo3_camera_joint</joint_pitch>
@@ -1613,6 +1593,6 @@
         </channel>
       </control_gimbal_channels>
       <gimbal_imu>camera_imu</gimbal_imu>
-    </plugin>
+    </plugin-->
   </model>
 </sdf>
