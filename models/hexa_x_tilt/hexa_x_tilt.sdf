@@ -402,6 +402,7 @@
         <visualize>true</visualize>
         <plugin name="GstCameraPlugin" filename="libgazebo_gst_camera_plugin.so">
             <robotNamespace></robotNamespace>
+            <udpHost>127.0.0.1</udpHost>
             <udpPort>5600</udpPort>
         </plugin>
         <plugin name="GeotaggedImagesPlugin" filename="libgazebo_geotagged_images_plugin.so">
@@ -409,10 +410,11 @@
             <interval>1</interval>
             <width>3840</width>
             <height>2160</height>
+            <maximum_zoom>8.0</maximum_zoom>
         </plugin>
       </sensor>
-    </link>
-    <joint name='cgo3_camera_joint' type='revolute'>
+    </link-->
+    <!--joint name='cgo3_camera_joint' type='revolute'>
       <child>cgo3_camera_link</child>
       <parent>cgo3_horizontal_arm_link</parent>
       <pose>-0.041 0.03 -0.162 0 0 0</pose>
@@ -759,7 +761,6 @@
       </physics>
     </joint>
     <link name='rotor_0'>
-      <!-- <pose>-0.209396 0.122762 0.082219 0 0.0 2.09439510239</pose> -->
       <pose>-0.209396 0.122762 0.082219 0.0 0.52 1.04</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
@@ -813,7 +814,6 @@
       <child>rotor_0</child>
       <parent>base_link</parent>
       <axis>
-        <!-- <xyz>0.046 0.0827 1.8977</xyz> -->
         <xyz>0.25 0.42 0.86</xyz>
         <limit>
           <lower>-1e+16</lower>
@@ -1137,6 +1137,7 @@
       </axis>
     </joint> -->
 
+
     <plugin name='rosbag' filename='libgazebo_multirotor_base_plugin.so'>
       <robotNamespace></robotNamespace>
       <linkName>base_link</linkName>
@@ -1328,7 +1329,7 @@
     </plugin>
     <plugin name='magnetometer_plugin' filename='libgazebo_magnetometer_plugin.so'>
       <robotNamespace/>
-      <pubRate>20</pubRate>
+      <pubRate>100</pubRate>
       <noiseDensity>0.0004</noiseDensity>
       <randomWalk>6.4e-06</randomWalk>
       <biasCorrelationTime>600</biasCorrelationTime>
@@ -1336,7 +1337,7 @@
     </plugin>
     <plugin name='barometer_plugin' filename='libgazebo_barometer_plugin.so'>
       <robotNamespace/>
-      <pubRate>10</pubRate>
+      <pubRate>50</pubRate>
       <baroTopic>/baro</baroTopic>
     </plugin>
     <plugin name='mavlink_interface' filename='libgazebo_mavlink_interface.so'>
@@ -1359,7 +1360,6 @@
       <enable_lockstep>true</enable_lockstep>
       <use_tcp>true</use_tcp>
       <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
-
       <control_channels>
         <channel name="rotor0">
           <input_index>0</input_index>
@@ -1609,3 +1609,4 @@
     </plugin-->
   </model>
 </sdf>
+
